@@ -1,0 +1,14 @@
+{
+  "name": "webprojecttemplate",
+  "version": "1.0.0",
+  "description": "It's a template to get started with a web project fast",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "Nhlalala Shiburi",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.10.0"
+  }
+}
