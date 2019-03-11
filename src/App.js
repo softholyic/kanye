@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Kanye_1, Kanye_2 } from './kanyePics';
+
+let ye = [Kanye_1, Kanye_2];
 
 class App extends Component {
 
@@ -7,8 +10,12 @@ class App extends Component {
     super(props);
     this.state = {
       quote: "",
-      isLoaded: false
+      isLoaded: false,
+      counter: 0
     }
+
+    this.reload = this.reload.bind(this);
+    this.background = this.background.bind(this);
   }
 
   componentDidMount() {
@@ -24,26 +31,64 @@ class App extends Component {
 
   }
 
+  reload() {
+    this.background();
+    //window.location.reload();
+    this.componentDidMount();
+  }
+  background = () => {
+
+
+    if (this.state.counter <= 10) {
+
+
+
+      this.setState({
+        counter: this.state.counter + 1
+      })
+    } else {
+      this.setState({
+        counter: 0
+      })
+    }
+  }
+
+
+
   render() {
     var { isLoaded, quote } = this.state;
 
     if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
+
       return (
         <div className="App">
 
-          <ul>
-            <li>{quote.quote}</li>
-          </ul>
+          <div className="kanye-background" style={{ backgroundImage: `url(${ye[this.state.counter]})` }}>
 
-        </div>
+            {/* <img src={Kanye_1} />
+            <img src={Kanye_2} /> */}
+
+            <ul>
+              <li>{quote.quote}</li>
+            </ul>
+          </div>
+
+          <button onClick={this.reload}>Quote</button>
+
+        </div >
       );
 
     }
 
 
   }
+
 }
+
+
+
+
 
 export default App;

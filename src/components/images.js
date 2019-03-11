@@ -1,0 +1,1 @@
+const images = [{ src: "./KanyePics/Kanye_1.jpg" }];

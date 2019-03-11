@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+
+.App .kanye-background{
+      background-Position: 'center';
+      background-Size: 'cover';
+      background-Repeat: 'no-repeat';
+      height:100vh;
+      width: 100vw;
+}
