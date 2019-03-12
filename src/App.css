@@ -41,11 +41,13 @@
 
 }
 .btn-primary {
-    color: #fff;
-    background-color: black;
-    border-color: black;
+
 }
 .btn {
+  color: #fff;
+    margin-left: 10px;
+    background-color: black;
+    border-color: black;
     display: inline-block;
     margin-bottom: 0;
     font-weight: 400;
@@ -85,4 +87,8 @@
     background-color: black;
     color: white;
     border: 1px solid black;
+}
+
+.Quote p #author{
+  display: none;
 }

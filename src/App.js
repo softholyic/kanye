@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      author: "",
       quote: "",
       isLoaded: false,
       counter: 0
@@ -25,7 +26,8 @@ class App extends Component {
       .then(json => {
         this.setState({
           isLoaded: true,
-          quote: json
+          quote: json,
+          author: json.id
         })
       });
 
@@ -39,7 +41,7 @@ class App extends Component {
   background = () => {
 
 
-    if (this.state.counter <= 10) {
+    if (this.state.counter <= 8) {
 
 
 
@@ -56,14 +58,14 @@ class App extends Component {
 
 
   render() {
-    var { isLoaded, quote } = this.state;
+    var { isLoaded, quote, author = "Kanye" } = this.state;
 
     if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
 
       return (
-        <div className="App">
+        <div id="quote-box" className="App">
 
           <div className="kanye-background" style={{
             backgroundImage: `url(${ye[this.state.counter]})`, backgroundPosition: 'center',
@@ -72,16 +74,13 @@ class App extends Component {
           </div >
           <div className="Quote">
 
-            <p>{quote.quote}</p>
+            <p id="text">{quote.quote}<span id="author">  {author}</span>-Kanye</p>
+
 
           </div>
 
-
-
-
-
-
-          <button className="btn-primary btn" onClick={this.reload}>Quote</button>
+          <a target="_blank" id="tweet-quote" href="www.twitter.com/intent/tweet" ><button className="btn">Tweet</button></a>
+          <button id="new-quote" className="btn" onClick={this.reload}>Quote</button>
 
         </div>
 
