@@ -34,9 +34,55 @@
 
 
 .App .kanye-background{
-      background-Position: 'center';
-      background-Size: 'cover';
-      background-Repeat: 'no-repeat';
-      height:100vh;
-      width: 100vw;
+    height: 85vh;
+    width: 95vw;
+    opacity:0.5;
+    display: inline-block;
+
+}
+.btn-primary {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.Quote{
+  opacity: 1;
+  position: relative;
+  margin: -80vh 4em 15vh 4em;
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column;
+  height: 70vh;
+}
+.Quote p {
+  font-size: 2em;
+  font-size: 2em;
+    font-weight: 900;
+    opacity: 0.5;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
 }

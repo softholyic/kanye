@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Kanye_1, Kanye_2 } from './kanyePics';
+import { Kanye_1, Kanye_2, Kanye_3, Kanye_4, Kanye_5, Kanye_6, Kanye_7, Kanye_8, Kanye_9, Kanye_10 } from './kanyePics';
 
-let ye = [Kanye_1, Kanye_2];
+let ye = [Kanye_1, Kanye_2, Kanye_3, Kanye_4, Kanye_5, Kanye_6, Kanye_7, Kanye_8, Kanye_9, Kanye_10];
 
 class App extends Component {
 
@@ -65,19 +65,26 @@ class App extends Component {
       return (
         <div className="App">
 
-          <div className="kanye-background" style={{ backgroundImage: `url(${ye[this.state.counter]})` }}>
+          <div className="kanye-background" style={{
+            backgroundImage: `url(${ye[this.state.counter]})`, backgroundPosition: 'center',
+            backgroundSize: 'cover', backgroundRepeat: 'no-repeat'
+          }}>
+          </div >
+          <div className="Quote">
 
-            {/* <img src={Kanye_1} />
-            <img src={Kanye_2} /> */}
+            <p>{quote.quote}</p>
 
-            <ul>
-              <li>{quote.quote}</li>
-            </ul>
           </div>
 
-          <button onClick={this.reload}>Quote</button>
 
-        </div >
+
+
+
+
+          <button className="btn-primary btn" onClick={this.reload}>Quote</button>
+
+        </div>
+
       );
 
     }
