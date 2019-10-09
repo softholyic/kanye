@@ -3,6 +3,9 @@ import './App.css';
 import { Kanye_1, Kanye_2, Kanye_3, Kanye_4, Kanye_5, Kanye_6, Kanye_7, Kanye_8, Kanye_9, Kanye_10 } from './kanyePics';
 
 let ye = [Kanye_1, Kanye_2, Kanye_3, Kanye_4, Kanye_5, Kanye_6, Kanye_7, Kanye_8, Kanye_9, Kanye_10];
+let authorKanye=['Ye','Kanye','KanYE','Kanye West','Pablo','Yeezy','Yeezus','Ye','Kanye to the','Mr. West'
+,'Kan The Louis Vuitton Don','The Don','Martin Louis the King, Jr.','KanYeezy','The LeBron of Rhyme','K-Rock'
+,'Omari','Mari','The Black Zac Efron','Evel Kanyevel','Swag King Cole']
 
 class App extends Component {
 
@@ -12,7 +15,8 @@ class App extends Component {
       author: "",
       quote: "",
       isLoaded: false,
-      counter: 0
+      counter: 0,
+      authorCounter:0
     }
 
     this.reload = this.reload.bind(this);
@@ -20,45 +24,55 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getQuote();
+  }
 
+  getQuote(){
     fetch("https://api.kanye.rest")
       .then(res => res.json())
       .then(json => {
         this.setState({
           isLoaded: true,
           quote: json,
-          author: json.id
+          author: authorKanye[this.state.authorCounter]
         })
       });
-
   }
 
   reload() {
     this.background();
-    //window.location.reload();
-    this.componentDidMount();
+    this.author();
+    this.getQuote();
+    
   }
   background = () => {
 
 
     if (this.state.counter <= 8) {
-
-
-
       this.setState({
         counter: this.state.counter + 1
       })
-    } else {
+    } else{
       this.setState({
         counter: 0
       })
     }
   }
 
+  author = () => {
+    if(this.state.authorCounter <= 20) {
+      this.setState({
+        authorCounter: this.state.authorCounter + 1
+      })
+    }else {
+      this.setState({authorCounter: 0})
+    }
+  }
+
 
 
   render() {
-    var { isLoaded, quote, author = "Kanye" } = this.state;
+    var { isLoaded, quote, author} = this.state;
 
     if (!isLoaded) {
       return <div>Loading...</div>;
@@ -72,14 +86,15 @@ class App extends Component {
             backgroundSize: 'cover', backgroundRepeat: 'no-repeat'
           }}>
           </div >
-          <div className="Quote">
+          
 
-            <p id="text">{quote.quote}<span id="author">  {author}</span>-Kanye</p>
+            <p id="text">{quote.quote}</p>
+            <div id="author"> {author} </div>
 
 
-          </div>
+          
 
-          <a target="_blank" id="tweet-quote" href="www.twitter.com/intent/tweet" ><button className="btn">Tweet</button></a>
+          <a target="_blank" id="tweet-quote" href="www.twitter.com/intent/tweet" >Tweet</a>
           <button id="new-quote" className="btn" onClick={this.reload}>Quote</button>
 
         </div>
