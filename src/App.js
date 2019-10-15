@@ -47,9 +47,7 @@ class App extends Component {
     
   }
 
-  tweeet(){
-    window.location=`https://twitter.com/intent/tweet?text= ${this.state.quote.quote}-Kanye`
-  }
+
   background = () => {
 
 
@@ -93,17 +91,21 @@ class App extends Component {
 
           </div >
           <div className="quote"> 
-            <p id="text">{quote.quote}</p>
-            <div id="author"> {author} </div>
+            <div className="text">
+               <p id="text">{quote.quote}</p>
+            </div>
+           
+            <div id="author">-{author} </div>
+            <div className="buttons"> 
+              <button id="new-quote" onClick={this.reload}>
+                New Quote
+              </button>
 
-            {/* <a target="_blank" id="tweet-quote" href="www.twitter.com/intent/tweet" >Tweet</a> */}
-            {/* <button id="new-quote" className="btn" onClick={this.reload}>Quote</button> */}
-            <button id="new-quote" onClick={this.reload}>
-              New Quote
-            </button>
-            <Link icon id="tweet-quote" target="_blank" href="www.twitter.com/intent/tweet">
-              Tweet
-            </Link>
+              <Link icon id="tweet-quote" target="_blank" href={`http://www.twitter.com/intent/tweet?text=${this.state.quote.quote}-Kanye `}>
+                Tweet
+              </Link>
+            </div>
+            
           </div>
             
           

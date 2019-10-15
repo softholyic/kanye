@@ -3,7 +3,7 @@ import React from 'react';
 import { ReactComponent as Twitter } from '../kanyePics/Twitter_Logo_WhiteOnImage.svg';
 
 export default function Button(props) {
-	const { text, icon, children } = props;
+	const { children } = props;
 	const styles = {
 		div: {
 			width: '130px',
