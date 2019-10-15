@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import { Kanye_1, Kanye_2, Kanye_3, Kanye_4, Kanye_5, Kanye_6, Kanye_7, Kanye_8, Kanye_9, Kanye_10 } from './kanyePics';
 
+import './App.scss';
+import { Kanye_1, Kanye_2, Kanye_3, Kanye_4, Kanye_5, Kanye_6, Kanye_7, Kanye_8, Kanye_9, Kanye_10 } from './kanyePics';
+import Link from './components/Link'
 let ye = [Kanye_1, Kanye_2, Kanye_3, Kanye_4, Kanye_5, Kanye_6, Kanye_7, Kanye_8, Kanye_9, Kanye_10];
 let authorKanye=['Ye','Kanye','KanYE','Kanye West','Pablo','Yeezy','Yeezus','Ye','Kanye to the','Mr. West'
 ,'Kan The Louis Vuitton Don','The Don','Martin Louis the King, Jr.','KanYeezy','The LeBron of Rhyme','K-Rock'
@@ -45,6 +46,10 @@ class App extends Component {
     this.getQuote();
     
   }
+
+  tweeet(){
+    window.location=`https://twitter.com/intent/tweet?text= ${this.state.quote.quote}-Kanye`
+  }
   background = () => {
 
 
@@ -85,18 +90,23 @@ class App extends Component {
             backgroundImage: `url(${ye[this.state.counter]})`, backgroundPosition: 'center',
             backgroundSize: 'cover', backgroundRepeat: 'no-repeat'
           }}>
-          </div >
-          
 
+          </div >
+          <div className="quote"> 
             <p id="text">{quote.quote}</p>
             <div id="author"> {author} </div>
 
-
+            {/* <a target="_blank" id="tweet-quote" href="www.twitter.com/intent/tweet" >Tweet</a> */}
+            {/* <button id="new-quote" className="btn" onClick={this.reload}>Quote</button> */}
+            <button id="new-quote" onClick={this.reload}>
+              New Quote
+            </button>
+            <Link icon id="tweet-quote" target="_blank" href="www.twitter.com/intent/tweet">
+              Tweet
+            </Link>
+          </div>
+            
           
-
-          <a target="_blank" id="tweet-quote" href="www.twitter.com/intent/tweet" >Tweet</a>
-          <button id="new-quote" className="btn" onClick={this.reload}>Quote</button>
-
         </div>
 
       );
